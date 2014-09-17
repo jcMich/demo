@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Producto {{ producto.nombre }}{% endblock %}
+{% block content %}
+    <h1>{{ producto.nombre }}</h1>
+    <img src="/{{ producto.imagen }}" width="150px" height="120px"/>
+    <p>Descripcion: {{ producto.descripcion }}</p>
+    <p>Precio: {{ producto.precio }}</p>
+    <p>Stok: {{ producto.stock }}</p>
+    <br/>
+    <h5>Categorias:</h5>
+    {% for c  in categoria %}
+        <span class="label label-info">{{ c.nombre }}</span>
+    {% endfor %}
+    <br/>
+
+    <hr/>
+    {% if producto.stock > 0 %}
+        <p><a class="btn btn-primary" href="#">Comprar Producto</a></p>
+    {% endif %}
+
+    <p><a class="btn btn-primary" href="javascript:window.history.go(-1)">Regresar a la lista</a></p>
+{% endblock %}

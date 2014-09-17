@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Agregar Producto{% endblock %}
+{% block content %}
+<a class="btn btn-danger" href="/productos/page/1">Regresar a lista de productos</a>
+    <br/><br/><br/>
+    <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Grabar"/>
+        <input type="reset" value="Limpiar"/>
+    </form>
+    <br/>
+    {{ informacion }}
+    <br/>
+
+{% endblock %}
